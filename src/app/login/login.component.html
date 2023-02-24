@@ -1,0 +1,33 @@
+<form [formGroup]="myForm" (submit)="onSubmit()">
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 p-4 m-5 border-success rounded shadow-lg">
+    
+              <h1>Login</h1>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="username" required id="username" name="username" placeholder="name@example.com"
+                [class.is-invalid]="f.username.invalid && (f.username.dirty || f.username.touched)">
+                <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)" class="invalid-feedback">
+                  <div *ngIf="f.username.errors?.['required']">
+                    User name is required.
+                  </div>
+                  </div>
+                <label for="floatingInput">User Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" id="password" formControlName="password" required name="password" class="form-control" placeholder="Password" 
+                [class.is-invalid]="f.password.invalid && (f.password.dirty || f.password.touched)">
+                <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)" class="invalid-feedback">
+                  <div *ngIf="f.password.errors?.['required']">
+                    Password is required.
+                  </div>
+                  </div>
+                <label for="floatingPassword">Password</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            
+          </div>
+        </div>
+      </div>
+    </form>
+    
